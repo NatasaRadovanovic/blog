@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Posts; // svugde ovo usujemo da bi znao koja je klasa (klasa posts iz modela)
+use App\Post; // svugde ovo usujemo da bi znao koja je klasa (klasa posts iz modela)
+use App\Comment;
 
 use Illuminate\Http\Request;
 
@@ -9,13 +10,13 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Posts::published();//ovo Posts je iz modela kao i gore kdod use
+        $posts = Post::published();//ovo Posts je iz modela kao i gore kdod use
         return view('posts.index', compact('posts')); 
     }
 
     public function show($id)
     {
-        $post = Posts::findOrFail($id);
+        $post = Post::with('comments')->find($id); //ovo comments je funkcija iz posts.php
         return view('posts.show',compact('post')); // compact asocijativni niz, da ne bi
         //prosledjivali key value napisemo tako a ovo u zagradi post, mora da odgovara
         // $post ovo view... 
@@ -30,7 +31,7 @@ class PostController extends Controller
     {
         $this->validate(request(), ['title' =>'required','body' => 'required']); 
         //this se odnosi na PostsController i on ima svoju metodu validate
-        Posts::create([ //funkcija ,jedna od modela, eloquent
+        Post::create([ //funkcija ,jedna od modela, eloquent
         'title' => request('title'),
         'body' => request('body'),
         'published' => (bool) request('published'),
