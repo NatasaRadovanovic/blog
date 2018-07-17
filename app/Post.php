@@ -27,6 +27,7 @@ class Post extends Model
             'author' => $author,
             'text' => $text,
             'post_id' => $post_id
+            
          ]);
     }
 }
