@@ -50,5 +50,13 @@ class PostController extends Controller
         //dd(request()->all());
         // return request()->all() moze i tako
     }
+
+    public function destroy($id)
+    {
+        $post = Post::find($id);
+        $post->delete();
+        redirect('/posts')->with('Post removed');
+    }
+
     
 }
