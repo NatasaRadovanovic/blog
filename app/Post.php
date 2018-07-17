@@ -20,4 +20,13 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class); //jedan post ima vise komentara
     }
+
+    public function addComment($author,$text,$post_id)
+    {
+        Comment::create([
+            'author' => $author,
+            'text' => $text,
+            'post_id' => $post_id
+         ]);
+    }
 }

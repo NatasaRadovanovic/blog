@@ -50,4 +50,5 @@ class PostController extends Controller
         //dd(request()->all());
         // return request()->all() moze i tako
     }
+    
 }

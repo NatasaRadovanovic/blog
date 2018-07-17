@@ -3,7 +3,7 @@ a layout je folder koji mi napravimo u viewu i onda u tom layoutu smo
 pravili master.blade -->
 
 @section('content') <!-- to je ta sekcija sto smo napravili -->
-  <a class="btn btn-primary" href='/posts/create'> Create post</a>
+  <a class="btn btn-primary" href='/posts/create'> Create post</a><br><br>
  
     @foreach($posts as $post)
     <div class="blog-post">
