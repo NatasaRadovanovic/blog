@@ -11,7 +11,7 @@ class Comment extends Model
     ];
     public function post()
     {
-        return $this->belongsTo(Post::class); // komentar pripada postu
+        return $this->belongsTo(Post::class); // komentar pripada jednom postu
     }
 
     

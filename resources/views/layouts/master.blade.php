@@ -20,6 +20,15 @@
       <div class="container">
         <nav class="nav blog-nav">
           <a class="nav-link active" href="#">Home</a>
+
+          @if(auth()->check()) <!--check proverava da li je ulogovan ako jeste onda.. -->
+          <a href="#" class="nav-link">{{auth()->user()->name}}</a> <!--ovako se moze dobiti ime usera 
+          tog ulogovanog ako postoji -->
+          <a href="/logout" class="nav-link">Logout</a>
+          @else
+          <a href="/login" class="nav-link">Login</a>
+          <a href="/register" class="nav-link">Register</a>
+          @endif
         </nav>
       </div>
     </div>

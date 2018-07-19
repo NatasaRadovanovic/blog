@@ -3,7 +3,10 @@ a layout je folder koji mi napravimo u viewu i onda u tom layoutu smo
 pravili master.blade -->
 
 @section('content') <!-- to je ta sekcija sto smo napravili -->
-  <a class="btn btn-primary" href='/posts/create'> Create post</a><br><br>
+@if(auth()->check()) <!--ako nije ulogova ne vidi dugme a ako jeste vidi ga -->
+<a class="btn btn-primary" href='/posts/create'> Create post</a><br><br>
+@endif
+ 
  
     @foreach($posts as $post)
     <div class="blog-post">
