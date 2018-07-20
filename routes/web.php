@@ -12,9 +12,9 @@ Route::get('/posts/create', 'PostController@create');// da je ovo ispod posts/id
 // radilo jer bi  upao prvo u posts/id a ne posts/create a ide redom kada ulazi u rute
 Route::get('/posts/{id}', 'PostController@show');
 Route::post('/posts', 'PostController@store'); // po konvenciji store naziv metode
-Route::post('/posts/{id}', 'CommentController@store');
+Route::post('/posts/{id}/comments', 'CommentController@store');
 
-Route::get('/register', 'RegisterController@create');
+Route::get('/register', 'RegisterController@create')->name('register');
 Route::post('/register', 'RegisterController@store');
 
 Route::get('/logout', 'LoginController@destroy');
@@ -22,6 +22,10 @@ Route::get('/logout', 'LoginController@destroy');
 Route::get('/login', 'LoginController@create')->name('login'); //mora da se imenuje inace ako nismo ulogovani
 //i hocemo create post dugme vraca na login, inace bez ovoga name izbacuje gresku
 Route::post('/login', 'LoginController@store');
+
+Route::get('/users/{user}', 'UsersController@show');
+
+Route::get('/posts/tags/{tag}', 'TagsController@showPostsWithTag');
 
 
 

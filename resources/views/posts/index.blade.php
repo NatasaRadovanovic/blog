@@ -12,6 +12,10 @@ pravili master.blade -->
     <div class="blog-post">
       <h2 class="blog-post-title"><a href="{{action('PostController@show', $post->id)}}">{{$post->title}}</a></h2>
        <p class="blog-post-meta">{{$post->created_at}} </p>
+       @if($post->user) <!-- da sam preko id islo bi samo jos ->id -->
+      
+           <p>by <a href='/users/{{ $post->user->id }}'>{{ $post->user->name}}</a></p>  
+       @endif
        <p> {{$post->body}}</p>
     </div><!-- /.blog-post -->
     @endforeach

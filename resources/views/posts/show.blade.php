@@ -6,9 +6,15 @@
         <p class="blog-post-meta">{{$post->created_at}} </p>
         <p>by {{$post->user->name}}</p>
 
+      @if(count($post->tags))
+        @foreach($post->tags as $tag)
+        <p><a href="/posts/tags/{{$tag->name}}">{{$tag->name}}</a></p>
+        @endforeach
+        @endif
+        
         <p> {{$post->body}}</p>
         </div><!-- /.blog-post -->
-<form method="POST" action="/posts/{{$post->id}}">
+<form method="POST" action="/posts/{{$post->id}}/comments">
   {{csrf_field()}}
 <div class="form-group">
     <label for="author">Name</label>

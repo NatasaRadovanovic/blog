@@ -18,6 +18,12 @@
     <input type="password" name='password' class="form-control" id="password">
     @include('partials.error-message' , ['fieldName' => 'password'])
   </div>
+
+  <div class="form-group">
+    <label for="password">Age</label>
+    <input type="number" name='age' class="form-control" id="age">
+    @include('partials.error-message' , ['fieldName' => 'age'])
+  </div>
   <button type="submit" class="btn btn-primary">Register</button>
 </form>
 

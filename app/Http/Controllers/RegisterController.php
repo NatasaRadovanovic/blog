@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Http\Middleware\CheckAge;
+
 
 class RegisterController extends Controller
 {
@@ -16,6 +18,7 @@ class RegisterController extends Controller
         //moze opet na register
         //isto radimo i za loginController ali moramo paziti jer nam je tu i logout pa dodamo
         //deo sa except! pre je bilo pre toga
+        $this->middleware('age', ['only' => 'store']);
     }
     public function create()
     {
