@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
          $this->call(UsersTableSeeder::class); //otkomentarisemo, bilo je zakomentarisano za usera
-         $this->call(UsersTableSeeder::class); //ovo pozivamo za sledecu za post
+         $this->call(PostsTableSeeder::class);//ovo pozivamo za sledecu za post
+         $this->call(CommentsTableSeeder::class); 
     }
 }
