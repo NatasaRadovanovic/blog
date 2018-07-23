@@ -16,7 +16,9 @@ class PostController extends Controller
      }
     public function index()
     {
-        $posts = Post::published();//ovo Posts je iz modela kao i gore kdod use
+        $posts = Post::paginate(10);
+        
+       // $posts = Post::published();//ovo Posts je iz modela kao i gore kdod use
         return view('posts.index', compact('posts')); 
     }
 
