@@ -26,7 +26,9 @@ pravili master.blade -->
         
         <a class='btn btn-outline-{{ $posts->hasMorePages() ? "primary" : 
         "secondary disabled"}}' 
-        href="{{ $posts->nextPageUrl() }}">Next</a>
+        href="{{ $posts->nextPageUrl() }}">Next</a> <!--kada da je disabled a kad ne
+        ako smo na prvoj stranici ne mozemo previous tj on je disabled a ako smo na
+        poslednjoj onda je nex disabled -->
 
         Page {{ $posts->currentPage() }} of {{ $posts->lastPage()}}
     </nav>
